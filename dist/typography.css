@@ -1,0 +1,1088 @@
+@font-face {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/Kanit-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/Kanit-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('./fonts/Kanit-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/Kanit-Bold.ttf') format('truetype');
+}
+:root {
+  font-family: Kanit, system-ui, sans-serif;
+  font-size: 15px;
+}
+button,
+input,
+select,
+kbd {
+  font-family: inherit;
+}
+.topbar {
+  height: 78px;
+  gap: 14px;
+  padding: 0 20px;
+}
+.brand {
+  min-width: 210px;
+}
+.brand strong {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.brand small {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.brand-icon {
+  width: 39px;
+  height: 43px;
+}
+.search-box {
+  max-width: 140px;
+  gap: 6px;
+  padding: 8px;
+}
+.search-box input {
+  font-size: 12px;
+  width: 88px;
+}
+.search-box kbd {
+  font-size: 12px;
+}
+.search-box svg {
+  width: 15px;
+  height: 15px;
+}
+select {
+  font-size: 12px;
+  max-width: 144px;
+  padding: 7px 2px;
+}
+.clock time {
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+.clock small {
+  font-size: 11px;
+}
+.header-button {
+  font-size: 12px;
+  padding: 11px 12px;
+  gap: 6px;
+}
+.operator > span {
+  font-size: 12px;
+}
+.operator small {
+  font-size: 11px;
+}
+.operator > b {
+  font-size: 11px;
+}
+.notification span {
+  font-size: 9px;
+  width: 15px;
+  height: 15px;
+}
+.heading {
+  top: 125px;
+  left: 30px;
+}
+.heading > span {
+  font-size: 12px;
+}
+.heading h1 {
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.45;
+  margin: 8px 0;
+}
+.heading p {
+  font-size: 12px;
+  line-height: 1.65;
+  gap: 7px;
+}
+.heading p small {
+  font-size: 11px;
+}
+.kpis {
+  top: 125px;
+  left: 348px;
+  right: 380px;
+  gap: 10px;
+}
+.kpis article {
+  padding: 15px 17px;
+  min-height: 112px;
+}
+.kpis article > span {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.kpis strong {
+  font-size: 35px;
+  letter-spacing: -1px;
+  line-height: 1.3;
+}
+.kpis strong b {
+  font-weight: 500;
+}
+.kpis strong small {
+  font-size: 15px;
+}
+.kpis p {
+  font-size: 11px;
+  line-height: 1.55;
+  margin-top: 1px;
+}
+.detail {
+  top: 125px;
+  width: 330px;
+  padding: 23px 20px 17px;
+}
+.detail header {
+  font-size: 12px;
+  gap: 5px;
+  padding-bottom: 20px;
+}
+.sim-label {
+  font-size: 11px;
+}
+.detail h2,
+.detail h2.station-heading {
+  font-size: 30px;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.detail h2 + p {
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0 0 13px;
+}
+.status-badge {
+  font-size: 12px;
+  padding: 6px 10px;
+  line-height: 1.6;
+}
+.train-visual {
+  margin: 22px 0 27px;
+  height: 30px;
+}
+.train-visual > i {
+  height: 27px;
+}
+.train-visual > i:before {
+  font-size: 9px;
+}
+.stats {
+  gap: 20px 18px;
+  margin-bottom: 20px;
+}
+.stats dt {
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+.stats dd {
+  font-size: 16px;
+  line-height: 1.55;
+  font-weight: 500;
+}
+.density {
+  padding-top: 16px;
+}
+.density > div:first-child {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.density b {
+  font-size: 16px;
+  font-weight: 500;
+}
+.density-track {
+  height: 5px;
+  margin-top: 10px;
+}
+.operation-note {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 14px 0 9px;
+}
+.updated {
+  font-size: 11px;
+  line-height: 1.7;
+}
+.disclaimer {
+  font-size: 11px;
+  line-height: 1.75;
+}
+.detail footer {
+  padding-top: 15px;
+  margin-top: 15px;
+}
+.primary {
+  font-size: 13px;
+  padding: 13px 15px;
+}
+.detail footer .secondary {
+  font-size: 11px;
+  line-height: 1.55;
+  padding: 10px 8px;
+}
+.secondary {
+  font-size: 12px;
+  line-height: 1.6;
+}
+.station-visual {
+  height: 85px;
+}
+.controls-area {
+  bottom: 295px;
+  right: 380px;
+}
+.hint {
+  font-size: 11px;
+  line-height: 1.6;
+  padding: 7px 11px;
+}
+.toolbar-content {
+  gap: 1px;
+}
+.toolbar-content button {
+  font-size: 12px;
+  padding: 10px 10px;
+  line-height: 1.5;
+}
+.toolbar {
+  padding: 7px 8px;
+}
+.toolbar > button {
+  font-size: 24px;
+}
+.bottom-panels {
+  right: 380px;
+  height: 255px;
+  grid-template-columns: 304px minmax(0, 1fr);
+  gap: 14px;
+}
+.journey {
+  padding: 22px 20px;
+}
+.journey header {
+  font-size: 12px;
+}
+.journey header small {
+  font-size: 10px;
+}
+.journey h3 {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 20px 0 9px;
+}
+.journey > p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.steps {
+  margin-top: 29px;
+}
+.steps i {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.steps small {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.steps:before {
+  top: 12px;
+}
+.table-tabs {
+  height: 51px;
+  gap: 16px;
+}
+.table-tabs > button {
+  font-size: 13px;
+  height: 51px;
+}
+.table-tabs b {
+  font-size: 10px;
+  margin-left: 4px;
+}
+.table-card th {
+  font-size: 11px;
+  line-height: 1.7;
+  height: 39px;
+}
+.table-card td {
+  font-size: 13px;
+  height: 45px;
+  line-height: 1.7;
+  padding: 0 8px;
+}
+.table-card td:first-child {
+  font-size: 14px;
+  font-weight: 500;
+}
+.status-text {
+  font-size: 13px;
+  font-weight: 500;
+}
+.table-tabs > .export-button {
+  font-size: 24px;
+}
+.world-label {
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 6px 10px;
+}
+.world-label b {
+  font-size: 11px;
+}
+.train-label,
+.landmark-label {
+  font-size: 11px;
+}
+.compass {
+  right: 378px;
+  top: 261px;
+  font-size: 11px;
+}
+.compass b {
+  font-size: 27px;
+}
+.search-results {
+  left: 245px;
+  top: 105px;
+}
+.search-results button {
+  font-size: 14px;
+  padding: 13px 11px;
+}
+.search-results small {
+  font-size: 11px;
+}
+.search-results > p {
+  font-size: 13px;
+}
+.light-panel {
+  top: 110px;
+  width: 270px;
+}
+.light-panel h3 {
+  font-size: 15px;
+}
+.light-panel label {
+  font-size: 13px;
+}
+.events-panel {
+  top: 110px;
+  width: 350px;
+}
+.events-panel h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.events-panel > p {
+  font-size: 12px;
+}
+.event-row,
+.event-row button {
+  font-size: 13px;
+}
+.event-row time {
+  font-size: 11px;
+}
+.event-row > i {
+  margin-top: 10px;
+}
+#detail-reopen {
+  top: 126px;
+}
+#detail-reopen button {
+  font-size: 13px;
+}
+.route-map button span {
+  font-size: 13px;
+}
+.route-map button b {
+  font-size: 13px;
+}
+dialog h2 {
+  font-size: 23px;
+  font-weight: 500;
+}
+dialog p,
+dialog li {
+  font-size: 15px;
+  line-height: 1.9;
+}
+dialog header small {
+  font-size: 12px;
+}
+dialog .disclaimer {
+  font-size: 12px;
+}
+#toast {
+  font-size: 14px;
+  bottom: 310px;
+}
+@media (min-width: 1500px) {
+  .detail {
+    width: 360px;
+  }
+  .kpis {
+    right: 415px;
+  }
+  .bottom-panels,
+  .controls-area {
+    right: 410px;
+  }
+  .compass {
+    right: 410px;
+  }
+  .kpis strong {
+    font-size: 38px;
+  }
+  .table-card td {
+    font-size: 14px;
+  }
+  .table-card th {
+    font-size: 12px;
+  }
+  .table-card td:first-child {
+    font-size: 15px;
+  }
+  .stats dd {
+    font-size: 17px;
+  }
+  .detail h2 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 1190px) {
+  .topbar {
+    gap: 11px;
+    padding: 0 16px;
+  }
+  .brand {
+    min-width: 180px;
+    gap: 8px;
+  }
+  .brand strong {
+    font-size: 19px;
+  }
+  .brand small {
+    font-size: 10px;
+  }
+  .header-button span:last-child {
+    display: none;
+  }
+  .header-button {
+    padding: 10px;
+  }
+  .topbar select {
+    font-size: 12px;
+    max-width: 136px;
+  }
+  .search-box {
+    max-width: 107px;
+  }
+  .search-box input {
+    width: 53px;
+  }
+  .clock time {
+    font-size: 14px;
+  }
+  .clock small {
+    font-size: 10px;
+  }
+  .heading h1 {
+    font-size: 23px;
+  }
+  .heading {
+    left: 25px;
+  }
+  .heading p small {
+    display: none;
+  }
+  .kpis {
+    left: 315px;
+    right: 364px;
+    gap: 8px;
+  }
+  .kpis article {
+    padding: 14px 12px;
+  }
+  .kpis article > span {
+    font-size: 11px;
+  }
+  .kpis strong {
+    font-size: 31px;
+  }
+  .kpis strong small {
+    font-size: 13px;
+  }
+  .kpis p {
+    font-size: 10px;
+    white-space: normal;
+  }
+  .detail {
+    width: 310px;
+    right: 20px;
+  }
+  .bottom-panels,
+  .controls-area {
+    right: 350px;
+    left: 20px;
+  }
+  .bottom-panels {
+    grid-template-columns: 265px minmax(0, 1fr);
+  }
+  .toolbar-content button {
+    font-size: 11px;
+    padding: 9px 7px;
+  }
+  .hint {
+    font-size: 10px;
+  }
+  .journey {
+    padding: 20px 16px;
+  }
+  .journey h3 {
+    font-size: 16px;
+  }
+  .journey header {
+    font-size: 11px;
+  }
+  .journey header small {
+    font-size: 9px;
+  }
+  .table-tabs {
+    gap: 11px;
+  }
+  .table-tabs > button {
+    font-size: 12px;
+  }
+  .table-card td {
+    font-size: 12px;
+  }
+  .table-card td:first-child {
+    font-size: 13px;
+  }
+  .table-card th {
+    font-size: 10px;
+  }
+  .status-text {
+    font-size: 12px;
+  }
+  .compass {
+    right: 352px;
+  }
+  .search-results {
+    left: 210px;
+  }
+}
+@media (max-width: 960px) {
+  .topbar {
+    height: 70px;
+    top: 14px;
+    gap: 10px;
+  }
+  .brand {
+    min-width: 166px;
+  }
+  .brand strong {
+    font-size: 18px;
+  }
+  .brand small {
+    font-size: 10px;
+  }
+  .topbar select {
+    font-size: 11px;
+    max-width: 125px;
+  }
+  .heading {
+    top: 103px;
+    left: 21px;
+  }
+  .heading h1 {
+    font-size: 22px;
+  }
+  .heading > span {
+    font-size: 11px;
+  }
+  .heading p {
+    font-size: 11px;
+  }
+  .kpis {
+    top: 170px;
+    left: 20px;
+    right: 326px;
+  }
+  .kpis article {
+    min-height: 99px;
+    padding: 13px 12px;
+  }
+  .kpis article > span {
+    font-size: 11px;
+  }
+  .kpis strong {
+    font-size: 30px;
+  }
+  .kpis p {
+    font-size: 9px;
+  }
+  .detail {
+    width: 294px;
+    right: 16px;
+    top: 103px;
+    padding: 20px 18px 15px;
+  }
+  .detail h2 {
+    font-size: 28px;
+  }
+  .detail h2 + p {
+    font-size: 12px;
+  }
+  .detail header {
+    font-size: 11px;
+  }
+  .sim-label {
+    font-size: 10px;
+  }
+  .stats dt {
+    font-size: 11px;
+  }
+  .stats dd {
+    font-size: 15px;
+  }
+  .detail footer .secondary {
+    font-size: 10px;
+  }
+  .bottom-panels,
+  .controls-area {
+    left: 16px;
+    right: 326px;
+  }
+  .bottom-panels {
+    height: 225px;
+    grid-template-columns: 1fr;
+  }
+  .controls-area {
+    bottom: 258px;
+  }
+  .toolbar-content {
+    flex-wrap: wrap;
+    gap: 1px;
+  }
+  .toolbar-content button {
+    font-size: 10px;
+    padding: 9px 7px;
+  }
+  .table-tabs {
+    height: 45px;
+  }
+  .table-tabs > button {
+    height: 45px;
+    font-size: 12px;
+  }
+  .table-card td {
+    font-size: 12px;
+    height: 41px;
+  }
+  .table-card th {
+    font-size: 10px;
+  }
+  .table-card td:first-child {
+    font-size: 13px;
+  }
+  .compass {
+    right: 320px;
+    top: 293px;
+  }
+  .search-results,
+  .light-panel,
+  .events-panel {
+    top: 94px;
+  }
+  .no-detail .kpis {
+    right: 20px;
+  }
+  .no-detail .bottom-panels {
+    grid-template-columns: 280px minmax(0, 1fr);
+  }
+  .no-detail .bottom-panels,
+  .no-detail .controls-area {
+    right: 16px;
+  }
+  .world-label {
+    font-size: 11px;
+  }
+  .world-label b {
+    font-size: 10px;
+  }
+  #toast {
+    bottom: 270px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 650px) {
+  .topbar {
+    inset: 10px 10px auto;
+    height: 65px;
+    padding: 0 10px;
+    gap: 6px;
+  }
+  .brand {
+    min-width: 0;
+    gap: 6px;
+  }
+  .brand strong {
+    font-size: 15px;
+  }
+  .brand small {
+    font-size: 9px;
+    line-height: 1.4;
+  }
+  .brand-icon {
+    width: 27px;
+    height: 34px;
+  }
+  .topbar #area {
+    font-size: 10px;
+    max-width: 95px;
+    padding: 5px 0;
+  }
+  .header-button {
+    padding: 5px;
+  }
+  .header-button svg {
+    width: 16px;
+    height: 16px;
+  }
+  .notification {
+    width: 21px;
+  }
+  .operator,
+  .clock {
+    display: none;
+  }
+  .heading {
+    top: 90px;
+    left: 15px;
+    right: 15px;
+  }
+  .heading > span {
+    font-size: 10px;
+  }
+  .heading h1 {
+    font-size: 22px;
+    margin: 5px 0;
+    line-height: 1.4;
+  }
+  .heading p {
+    font-size: 10px;
+    gap: 6px;
+  }
+  .heading p small {
+    font-size: 9px;
+    display: block;
+    margin-left: 0;
+  }
+  .kpis {
+    top: 173px;
+    left: 12px;
+    right: 12px;
+    gap: 6px;
+  }
+  .kpis article {
+    min-height: 92px;
+    padding: 10px 9px;
+  }
+  .kpis article > span {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .kpis strong {
+    font-size: 29px;
+    letter-spacing: -0.7px;
+  }
+  .kpis strong small {
+    font-size: 11px;
+  }
+  .kpis p {
+    font-size: 9px;
+    line-height: 1.4;
+    white-space: normal;
+  }
+  .detail {
+    top: auto;
+    bottom: 82px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-height: 48dvh;
+    padding: 18px;
+  }
+  .detail-scroll {
+    max-height: 29dvh;
+  }
+  .detail h2 {
+    font-size: 27px;
+  }
+  .detail h2 + p {
+    font-size: 12px;
+  }
+  .detail header {
+    font-size: 12px;
+    padding-bottom: 13px;
+  }
+  .sim-label {
+    font-size: 10px;
+  }
+  .stats {
+    gap: 16px;
+  }
+  .stats dt {
+    font-size: 11px;
+  }
+  .stats dd {
+    font-size: 15px;
+  }
+  .operation-note {
+    font-size: 12px;
+  }
+  .disclaimer {
+    font-size: 10px;
+  }
+  .updated {
+    font-size: 10px;
+  }
+  .detail footer {
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  .detail footer > .primary {
+    font-size: 12px;
+    padding: 11px;
+  }
+  .detail footer .secondary {
+    font-size: 10px;
+    padding: 9px;
+  }
+  .density > div:first-child {
+    font-size: 12px;
+  }
+  .density b {
+    font-size: 15px;
+  }
+  .bottom-panels {
+    left: 12px;
+    right: 12px;
+    bottom: 82px;
+    height: 184px;
+    display: block;
+  }
+  .table-card {
+    padding: 0 10px 7px;
+  }
+  .table-tabs {
+    height: 42px;
+    gap: 13px;
+  }
+  .table-tabs > button {
+    font-size: 12px;
+    height: 42px;
+  }
+  .table-tabs b {
+    font-size: 10px;
+  }
+  .table-card th {
+    font-size: 10px;
+    height: 32px;
+  }
+  .table-card td {
+    font-size: 11px;
+    height: 37px;
+    padding: 0 7px;
+  }
+  .table-card td:first-child {
+    font-size: 12px;
+  }
+  .status-text {
+    font-size: 11px;
+  }
+  .table-scroll {
+    overflow: auto;
+  }
+  .controls-area {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+  .toolbar {
+    padding: 7px 4px;
+  }
+  .toolbar-content {
+    gap: 0;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .toolbar-content button {
+    font-size: 10px;
+    padding: 8px 4px;
+  }
+  .toolbar-content .speed-group button {
+    padding: 8px 6px;
+  }
+  .toolbar-content #tour {
+    display: none;
+  }
+  .toolbar-content .divider {
+    margin: 0 1px;
+  }
+  .toolbar > button {
+    width: 13px;
+  }
+  .world-label,
+  .world-label b {
+    font-size: 9px;
+  }
+  .world-label {
+    padding: 5px 7px;
+  }
+  .train-label,
+  .landmark-label {
+    font-size: 9px;
+  }
+  .compass {
+    right: 19px;
+    top: 287px;
+    font-size: 10px;
+  }
+  .compass b {
+    font-size: 23px;
+  }
+  #detail-reopen {
+    top: 282px;
+    right: 12px;
+  }
+  #detail-reopen button {
+    font-size: 12px;
+    padding: 9px 12px;
+  }
+  .light-panel,
+  .events-panel {
+    top: 84px;
+  }
+  .route-map button span {
+    font-size: 11px;
+  }
+  .route-map button b {
+    font-size: 12px;
+  }
+  dialog h2 {
+    font-size: 22px;
+  }
+  dialog p,
+  dialog li {
+    font-size: 14px;
+  }
+  .no-detail .kpis {
+    right: 12px;
+  }
+  .no-detail .bottom-panels,
+  .no-detail .controls-area {
+    right: 12px;
+  }
+  #toast {
+    bottom: 279px;
+    font-size: 12px;
+  }
+}
+@media (max-height: 650px) and (min-width: 651px) {
+  .topbar {
+    top: 12px;
+    height: 63px;
+  }
+  .heading {
+    top: 91px;
+  }
+  .kpis {
+    top: 94px;
+  }
+  .kpis article {
+    min-height: 96px;
+    padding: 10px 14px;
+  }
+  .kpis strong {
+    font-size: 31px;
+  }
+  .detail {
+    top: 89px;
+    bottom: 14px;
+    padding-top: 17px;
+  }
+  .detail h2 {
+    font-size: 27px;
+  }
+  .detail header {
+    padding-bottom: 14px;
+  }
+  .controls-area {
+    bottom: 239px;
+  }
+  .bottom-panels {
+    height: 208px;
+    bottom: 14px;
+  }
+  .journey h3 {
+    margin-top: 14px;
+  }
+  .steps {
+    margin-top: 20px;
+  }
+  .table-tabs {
+    height: 44px;
+  }
+  .table-tabs > button {
+    height: 44px;
+  }
+  .table-card td {
+    height: 38px;
+  }
+  .table-card th {
+    height: 33px;
+  }
+  .stats {
+    gap: 15px;
+  }
+  .compass {
+    top: 225px;
+  }
+}

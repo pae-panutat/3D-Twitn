@@ -1,0 +1,84 @@
+.scene-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.scene-canvas > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+.scene-loading {
+  position: fixed;
+  left: 30px;
+  top: 135px;
+  padding: 14px 20px;
+  z-index: 5;
+  font-size: 14px;
+}
+.scene-canvas canvas {
+  display: block;
+  touch-action: none;
+}
+#world-labels {
+  z-index: 3;
+}
+.inspector .drawer-panel,
+.inspector [role='tabpanel'] {
+  min-width: 0;
+}
+.controls-area {
+  pointer-events: none;
+}
+.toolbar {
+  pointer-events: auto;
+}
+.inspector .heading p {
+  line-height: 1.9;
+}
+.inspector .station-visual svg {
+  height: 64px;
+  width: 64px;
+}
+.inspector .events-panel {
+  min-height: 180px;
+}
+@media (max-width: 650px) {
+  .inspector-open .toolbar-content {
+    display: flex;
+  }
+  .inspector-open .toolbar {
+    width: auto;
+    padding: 8px;
+  }
+  .inspector-open .controls-area {
+    max-width: calc(100vw - 67px);
+  }
+  .inspector {
+    bottom: 115px;
+  }
+  .scene-loading {
+    top: 95px;
+    left: 12px;
+  }
+  .controls-area {
+    z-index: 42;
+  }
+  .inspector-open .toolbar-content {
+    flex-wrap: wrap;
+  }
+}
+.inspector.glass {
+  background: rgba(253, 254, 255, 0.5);
+}
+body.night .inspector.glass {
+  background: rgba(34, 44, 65, 0.5);
+}
+.inspector .kpis article {
+  background: rgba(247, 249, 252, 0.5);
+}
+body.night .inspector .kpis article,
+body.night .inspector .journey-fold {
+  background: rgba(43, 56, 80, 0.5);
+}

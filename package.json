@@ -1,0 +1,35 @@
+{
+  "name": "siam-twin-prototype",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Interactive 3D Bangkok district with 4 stations, 6 trains and simulated telemetry",
+  "scripts": {
+    "dev": "node server.mjs --dev",
+    "build": "next build --webpack",
+    "start": "node server.mjs",
+    "typecheck": "tsc --noEmit",
+    "model": "node scripts/export-model.mjs",
+    "test": "node --import tsx --test tests/*.test.mjs",
+    "verify:model": "node scripts/prepare-assets.mjs"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.0",
+    "@react-three/fiber": "^9.4.0",
+    "next": "^16.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/three": "^0.180.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.0"
+  }
+}
