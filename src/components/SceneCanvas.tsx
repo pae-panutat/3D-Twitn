@@ -23,7 +23,6 @@ interface Props {
   brightness: number;
   lightAngle: number;
   autoRotate: boolean;
-  tour: boolean;
   followId: string | null;
   showLabels: boolean;
   onSelect: (id: string) => void;
@@ -196,13 +195,6 @@ function CityScene(
           target: new THREE.Vector3(train.position.x, 5, train.position.z),
           radius: 95,
         };
-    }
-    if (props.tour) {
-      const t = clock.elapsedTime;
-      desired.current = {target: new THREE.Vector3(Math.sin(t * 0.04) * 24, 2, 5), radius: 210};
-      const s = new THREE.Spherical().setFromVector3(camera.position.clone().sub(c.target));
-      s.theta += dt * 0.045;
-      camera.position.setFromSpherical(s).add(c.target);
     }
     if (desired.current) {
       const offset = camera.position.clone().sub(c.target),
