@@ -82,3 +82,10 @@ body.night .inspector .kpis article,
 body.night .inspector .journey-fold {
   background: rgba(43, 56, 80, 0.5);
 }
+
+.clock {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+}

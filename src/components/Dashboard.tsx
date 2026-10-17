@@ -33,11 +33,10 @@ export default function Dashboard() {
     [drawerOpen, setDrawerOpen] = useState(false),
     [drawerTab, setDrawerTab] = useState<DrawerTab>('overview');
   const [autoRotate, setAutoRotate] = useState(true),
-    [tour, setTour] = useState(false),
     [followId, setFollowId] = useState<string | null>(null),
     [showLabels, setShowLabels] = useState(true);
+  const weather: Weather = 'clear';
   const [night, setNight] = useState(false),
-    [weather, setWeather] = useState<Weather>('clear'),
     [brightness, setBrightness] = useState(1),
     [lightAngle, setLightAngle] = useState(-0.5),
     [lightOpen, setLightOpen] = useState(false);
@@ -46,12 +45,10 @@ export default function Dashboard() {
     [query, setQuery] = useState(''),
     [searchOpen, setSearchOpen] = useState(false),
     [clock, setClock] = useState('—'),
-    [toast, setToast] = useState(''),
-    [sound, setSound] = useState(false);
+    [toast, setToast] = useState('');
   const search = useRef<HTMLInputElement | null>(null),
     mapDialog = useRef<HTMLDialogElement | null>(null),
-    helpDialog = useRef<HTMLDialogElement | null>(null),
-    audio = useRef<AudioContext | null>(null);
+    helpDialog = useRef<HTMLDialogElement | null>(null);
   const notify = useCallback((message: string) => setToast(message), []);
   const send = useCallback(
     async (action: ControlAction, id?: string, value?: number) => {
@@ -66,7 +63,6 @@ export default function Dashboard() {
   );
   const gesture = useCallback(() => {
     setAutoRotate(false);
-    setTour(false);
     setFollowId(null);
   }, []);
   const resetCamera = useCallback(() => {
@@ -135,34 +131,6 @@ export default function Dashboard() {
     document.addEventListener('keydown', listener);
     return () => document.removeEventListener('keydown', listener);
   }, [send, closeDrawer]);
-  useEffect(
-    () => () => {
-      void audio.current?.close();
-    },
-    [],
-  );
-  const soundToggle = async () => {
-    try {
-      if (!audio.current) {
-        const ctx = new AudioContext(),
-          gain = ctx.createGain();
-        gain.gain.value = 0.022;
-        gain.connect(ctx.destination);
-        for (const hz of [110, 165, 220]) {
-          const osc = ctx.createOscillator();
-          osc.frequency.value = hz;
-          osc.connect(gain);
-          osc.start();
-        }
-        audio.current = ctx;
-      }
-      if (sound) await audio.current.suspend();
-      else await audio.current.resume();
-      setSound(!sound);
-    } catch {
-      notify('เบราว์เซอร์นี้ไม่รองรับเสียงบรรยากาศ');
-    }
-  };
   const reset = async () => {
     await send('reset');
     resetCamera();
@@ -196,7 +164,6 @@ export default function Dashboard() {
           brightness={brightness}
           lightAngle={lightAngle}
           autoRotate={autoRotate}
-          tour={tour}
           followId={followId}
           showLabels={showLabels}
           onSelect={select}
@@ -255,17 +222,6 @@ export default function Dashboard() {
             </option>
           ))}
         </select>
-        <select
-          id="weather"
-          aria-label="สภาพอากาศ"
-          value={weather}
-          onChange={(e) => setWeather(e.target.value as Weather)}
-        >
-          <option value="clear">☀ ฟ้าโปร่ง · 31°</option>
-          <option value="rain">☂ ฝนตก · 27°</option>
-          <option value="fog">≋ หมอก · 25°</option>
-          <option value="festival">✦ ช่วงเทศกาล</option>
-        </select>
         <div className="clock">
           <time id="clock">{clock}</time>
           <small>กรุงเทพฯ · UTC+7</small>
@@ -291,16 +247,6 @@ export default function Dashboard() {
         >
           <Icon name="sun" />
           <span>ปรับแสง</span>
-        </button>
-        <button
-          id="sound-toggle"
-          className="header-button"
-          aria-label="เปิดหรือปิดเสียงบรรยากาศ"
-          aria-pressed={sound}
-          onClick={soundToggle}
-        >
-          <span className="music-icon">♫</span>
-          <span>{sound ? 'ปิดเสียง' : 'เปิดเสียง'}</span>
         </button>
         <button
           id="night-toggle"
@@ -388,7 +334,6 @@ export default function Dashboard() {
         onSelect={select}
         onFollow={() => {
           setAutoRotate(false);
-          setTour(false);
           setFollowId(followId === selected ? null : selected);
         }}
         onControl={send}
@@ -419,7 +364,7 @@ export default function Dashboard() {
               {snapshot?.paused ? '▷ เล่นต่อ' : 'Ⅱ หยุด'}
             </button>
             <div className="speed-group" aria-label="ความเร็วการจำลอง">
-              {[1, 3, 8].map((rate) => (
+              {[1, 3].map((rate) => (
                 <button
                   key={rate}
                   data-rate={rate}
@@ -441,23 +386,10 @@ export default function Dashboard() {
               className={autoRotate ? 'subtle-active' : ''}
               onClick={() => {
                 setAutoRotate(!autoRotate);
-                setTour(false);
                 setFollowId(null);
               }}
             >
               หมุน 360°
-            </button>
-            <button
-              id="tour"
-              aria-pressed={tour}
-              className={tour ? 'subtle-active' : ''}
-              onClick={() => {
-                setTour(!tour);
-                setAutoRotate(false);
-                setFollowId(null);
-              }}
-            >
-              ▷ ชมเมือง
             </button>
             <button id="map-toggle" onClick={() => mapDialog.current?.showModal()}>
               ⌖ แผนที่
@@ -527,7 +459,7 @@ export default function Dashboard() {
           </li>
           <li>เลือกสถานีหรือขบวนจากป้ายในเมือง ตาราง หรือช่องค้นหา</li>
           <li>กด “ติดตามขบวนนี้” ให้กล้องตามรถไฟ และกด “พักขบวน” เพื่อหยุดที่สถานีถัดไป</li>
-          <li>เปลี่ยนความเร็ว 1× / 3× / 8× สภาพอากาศ กลางคืน และแสง</li>
+          <li>เปลี่ยนความเร็ว 1× / 3× สภาพอากาศ กลางคืน และแสง</li>
         </ol>
         <p className="disclaimer">
           ชื่อสถานีอ้างอิงพื้นที่จริง แต่โมเดลอาคาร ระยะทาง และข้อมูลเดินรถทั้งหมดเป็นข้อมูลจำลอง
