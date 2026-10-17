@@ -1,4 +1,12 @@
-# Energy Building — เมือง 3D และศูนย์ควบคุมการเดินรถจำลอง
+# Farm Twin — โรงเรือนหมู Smart IoT
+
+หน้าแรกปัจจุบันเป็นโรงเรือน 3D พร้อมหมูเคลื่อนไหว 10 ตัว การติดตามรายตัว และพัดลมควบคุมผ่าน Node.js/SSE อ่านวิธีใช้งานและข้อจำกัดข้อมูลจำลองใน [SMART-FARM.md](SMART-FARM.md)
+
+รันด้วย `npm run dev` แล้วเปิด http://127.0.0.1:4173 หรือ `npm run build` และ `npm start` สำหรับ production
+
+---
+
+## เอกสารเวอร์ชันเมืองเดิม (เก็บไว้สำหรับอ้างอิง)
 
 เวอร์ชัน 2.0 ใช้ Next.js + TypeScript + React Three Fiber + Three.js/Drei และ Node.js Backend + SSE โมเดล glTF, ข้อมูล geometry และตัวจำลองเดิมไม่ได้แก้ไข อ่านรายละเอียดการย้ายและผลการตรวจโมเดลใน [MIGRATION.md](MIGRATION.md)
 

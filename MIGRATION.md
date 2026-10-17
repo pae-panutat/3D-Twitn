@@ -1,5 +1,7 @@
 # Energy Building v2 — Next.js / TypeScript / React Three Fiber
 
+> เอกสารนี้อธิบายการย้ายเวอร์ชันเมืองเดิม หน้าแรกปัจจุบันเปลี่ยนเป็น Smart Pig Farm ดู [SMART-FARM.md](SMART-FARM.md)
+
 ## Stack ที่ใช้งานจริง
 
 - Next.js App Router + React + TypeScript สำหรับ UI

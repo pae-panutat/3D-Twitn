@@ -1,5 +1,5 @@
 import {CitySimulation} from '../dist/city-simulation.js';
-export function createApi({port, simulation = new CitySimulation()}) {
+export function createApi({port, simulation = new CitySimulation(), prefix = '/api/', service = 'siam-city'}) {
   const clients = new Set();
   const json = (res, status, data) => {
     res.writeHead(status, {
@@ -21,18 +21,19 @@ export function createApi({port, simulation = new CitySimulation()}) {
   return {
     async handle(req, res) {
       const url = new URL(req.url, 'http://localhost');
-      if (!url.pathname.startsWith('/api/')) return false;
-      if (url.pathname === '/api/health') {
+      if (!url.pathname.startsWith(prefix)) return false;
+      const route = url.pathname.slice(prefix.length);
+      if (route === 'health') {
         if (req.method !== 'GET') json(res, 405, {error: 'GET required'});
-        else json(res, 200, {service: 'siam-city', source: 'simulation', transport: 'sse'});
+        else json(res, 200, {service, source: 'simulation', transport: 'sse'});
         return true;
       }
-      if (url.pathname === '/api/snapshot') {
+      if (route === 'snapshot') {
         if (req.method !== 'GET') json(res, 405, {error: 'GET required'});
         else json(res, 200, simulation.snapshot());
         return true;
       }
-      if (url.pathname === '/api/events') {
+      if (route === 'events') {
         if (req.method !== 'GET') {
           json(res, 405, {error: 'GET required'});
           return true;
@@ -48,19 +49,24 @@ export function createApi({port, simulation = new CitySimulation()}) {
         res.on('close', () => clients.delete(res));
         return true;
       }
-      if (url.pathname === '/api/control') {
+      if (route === 'control') {
         if (req.method !== 'POST') {
           json(res, 405, {error: 'POST required'});
           return true;
         }
         const origin = req.headers.origin;
-        if (
-          origin &&
-          origin !== `http://127.0.0.1:${port}` &&
-          origin !== `http://localhost:${port}`
-        ) {
-          json(res, 403, {error: 'Origin not permitted'});
-          return true;
+        if (origin) {
+          const host = req.headers['x-forwarded-host'] || req.headers.host;
+          const proto = req.headers['x-forwarded-proto'] || (req.socket?.encrypted ? 'https' : 'http');
+          const allowed = new Set([
+            `${proto}://${host}`,
+            `http://127.0.0.1:${port}`,
+            `http://localhost:${port}`,
+          ]);
+          if (!allowed.has(origin)) {
+            json(res, 403, {error: 'Origin not permitted'});
+            return true;
+          }
         }
         if (!req.headers['content-type']?.startsWith('application/json')) {
           json(res, 415, {error: 'JSON required'});
